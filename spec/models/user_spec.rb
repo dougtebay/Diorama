@@ -1,10 +1,3 @@
-# create_table "users", force: :cascade do |t|
-#     t.string   "twitter_profile"
-#     t.string   "email_add"
-#     t.string   "password"
-#     t.datetime "created_at",      null: false
-#     t.datetime "updated_at",      null: false
-
 require 'rails_helper'
 
 describe User do
@@ -18,5 +11,10 @@ describe User do
 
   it 'is invalid without attributes' do
     expect(@user).to be_valid
+  end
+
+  it 'can create a collection' do
+    @collection = @user.collections.build(name: 'Good Tweets', description: 'Tweets I like!', private?: true)
+    expect(@collection.user).to eq(@user)
   end
 end
