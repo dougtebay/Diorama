@@ -13,5 +13,7 @@
 
 class Collection < ActiveRecord::Base
   belongs_to :user
+  has_many :collections_tweets
+  has_many :tweets, through: :collections_tweets
 
 end

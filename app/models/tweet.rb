@@ -12,5 +12,7 @@
 #
 
 class Tweet < ActiveRecord::Base
-  belongs_to :collection
+  has_many :collections_tweets
+  has_many :collections, through: :collections_tweets
+  
 end
