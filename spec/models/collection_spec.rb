@@ -16,4 +16,5 @@ describe Collection do
   it 'belongs to a user' do
     expect(@collection.user.class).to eq(User)
   end
+
 end

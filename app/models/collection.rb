@@ -15,5 +15,6 @@ class Collection < ActiveRecord::Base
   belongs_to :user
   has_many :collections_tweets
   has_many :tweets, through: :collections_tweets
+  validates_presence_of :name
 
 end
