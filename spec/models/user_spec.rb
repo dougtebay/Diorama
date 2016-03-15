@@ -17,4 +17,6 @@ describe User do
     @collection = @user.collections.build(name: 'Good Tweets', description: 'Tweets I like!', private?: true)
     expect(@collection.user).to eq(@user)
   end
+
+  
 end
