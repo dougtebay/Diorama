@@ -13,5 +13,5 @@
 class User < ActiveRecord::Base
   has_many :collections
   has_many :tweets, through: :collections
-  
+  validates_presence_of :twitter_profile, :email_add, :password
 end
