@@ -7,7 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div id='container'>
+    <div id='user_header'><% if flash[:notice] %>
+      <div class='notice'><%= flash[:notice] %></div>
+    <% end %>
+      <%= link_to 'Log In', new_session_path %>
+      <%= link_to 'Sign Up', new_user_path %>
+      </div>
+    </div>
 <%= yield %>
 
 </body>

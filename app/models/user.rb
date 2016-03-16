@@ -14,5 +14,5 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :collections
   has_many :tweets, through: :collections
-  validates_presence_of :user_name, :email, :password_digest
+  validates_presence_of :user_name, :email
 end
