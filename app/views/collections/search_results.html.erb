@@ -1,0 +1,8 @@
+<% @tweets.each do |tweet| %>
+<p><label>User name: </label>
+<%= tweet.user_name %><br>
+<label>User handle: </label>
+<%= tweet.user_handle %><br>
+<%= tweet.date %><br>
+<%= tweet.text %><br></p>
+<% end %>

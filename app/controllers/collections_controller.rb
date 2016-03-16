@@ -55,9 +55,19 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def search
+    twitter = TwitterApi.new
+    @tweets = twitter.get_tweets(params[:user_name])
+    render :search_results
+  end
+
   private 
 
   def collection_params
     params.require(:collection).permit(:name, :description, :private?)
+  end
+
+  def search_params
+    params.permit(:user_name)
   end
 end
