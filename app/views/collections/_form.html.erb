@@ -1,3 +1,9 @@
+<%if @collection.errors.any? %>
+  <%@collection.errors.full_messages.each do |message|%>
+    <%=message%><br>
+  <%end%>
+<%end%>
+
 <%= form_for collection do |f|%>
 <%=f.label :name%>
 <%=f.text_field :name%><br>
