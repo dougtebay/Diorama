@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315152406) do
+ActiveRecord::Schema.define(version: 20160316134104) do
 
   create_table "collections", force: :cascade do |t|
     t.string   "name"
@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 20160315152406) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "twitter_profile"
-    t.string   "email_add"
-    t.string   "password"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "user_name"
+    t.string   "email"
+    t.string   "password_digest"
   end
 
 end
