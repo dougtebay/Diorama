@@ -27,11 +27,16 @@ class TwitterApi
 
   def parse_tweet(tweet)
     #takes the info for the tweet from the API itself, then saves it to db
+    twitter_id = tweet.id_str
     date = tweet.created_at.to_datetime
     text = tweet.text
     user_name = tweet.user.name
     user_handle = tweet.user.screen_name
-    tweet = Tweet.new(date: date, text: text, user_name: user_name, user_handle: user_handle)
+    tweet = Tweet.new(date: date, text: text, user_name: user_name, user_handle: user_handle, twitter_id: twitter_id)
   end
 
+  def get_one_tweet(id)
+    tweet = @client.status(id)
+    parse_tweet(tweet)
+  end
 end

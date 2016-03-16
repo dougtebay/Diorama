@@ -1,7 +1,7 @@
 <ul>
 <%@collections.each do |collection|%>
   <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%></li>
-<%= form_tag '/collections/search' %>
+<%= form_tag '/tweets/search' %>
 <%= search_field_tag :user_name %>
 <%end%>
 </ul>

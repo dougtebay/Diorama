@@ -198,6 +198,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  json
   pry-byebug
   rails (= 4.2.5.2)
   rspec-rails
