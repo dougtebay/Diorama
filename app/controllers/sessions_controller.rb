@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  skip_before_action :authorize, only: [:new, :create]
+
   def new
   end
 
@@ -9,7 +11,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       byebug
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "Logged In!"
+      redirect_to new_collection_path, notice: "Logged In!"
     else
       flash.now.alert = "Email or password is incorrect"
       render "new"
