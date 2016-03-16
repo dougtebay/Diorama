@@ -33,6 +33,28 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
   end
 
+  def index
+    @collections = Collection.all 
+  end
+
+  def destroy
+    @collection = Collection.find(params[:id])
+    @collection.destroy
+  end
+
+  def edit
+    @collection=Collection.find(params[:id])
+  end
+
+  def update
+    @collection=Collection.find(params[:id])
+    if @collection.update(collection_params)
+      redirect_to @collection 
+    else 
+      render :edit 
+    end
+  end
+
   private 
 
   def collection_params
