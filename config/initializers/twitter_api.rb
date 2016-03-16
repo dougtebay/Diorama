@@ -27,7 +27,8 @@ class TwitterApi
 
   def parse_tweet(tweet)
     #takes the info for the tweet from the API itself, then saves it to db
-    twitter_id = tweet.id_str
+ 
+    twitter_id = tweet.id.to_s
     date = tweet.created_at.to_datetime
     text = tweet.text
     user_name = tweet.user.name
