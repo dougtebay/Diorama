@@ -33,17 +33,19 @@ class User < ActiveRecord::Base
     self.tweets.where(handle: handle)
   end
 
-  def all_handles
+  def all_usernames
     self.tweets.map do |tweet|
-      tweet.user_handle
+      tweet.user_name
     end
   end
 
   def find_most_common_saved
-    all_handles.group_by do |handle|
-      handle
+    all_usernames.group_by do |username|
+      username
     end.values.max_by(&:size).first
   end
+
+
 
 
 

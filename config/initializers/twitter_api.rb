@@ -21,7 +21,7 @@ class TwitterApi
  # end
 
   def get_tweets(user_name, options)
-    #binding.pry
+    # binding.pry
     tweets = @client.user_timeline(user_name, options)
     tweets.map {|tweet| self.parse_tweet(tweet) }
   end
