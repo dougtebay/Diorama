@@ -1,11 +1,14 @@
 class TweetsController < ApplicationController
   def search
-    binding.pry
     if params[:collection]
       @collection= Collection.find(params[:collection].to_i)
     end
     twitter_api = TwitterApi.new
-    @tweets = twitter_api.get_tweets(params[:user_name])
+    if params[:twitter_id]
+      @tweets = twitter_api.get_tweets(params[:user_handle], options={max_id: params[:twitter_id].to_i - 1})
+    else
+      @tweets = twitter_api.get_tweets(params[:user_handle], options={})
+    end
     render :search
   end
 

@@ -20,8 +20,9 @@ class TwitterApi
  #    tweet= self.Twitter::created_at
  # end
 
-  def get_tweets(user_name)
-    tweets = @client.user_timeline(user_name)
+  def get_tweets(user_name, options)
+    #binding.pry
+    tweets = @client.user_timeline(user_name, options)
     tweets.map {|tweet| self.parse_tweet(tweet) }
   end
 

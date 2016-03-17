@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
     # byebug
     @user = User.find_by(user_name: params[:user_name])
     if @user && @user.authenticate(params[:password])
-      # byebug
       session[:user_id] = @user.id
       redirect_to root_path, notice: "Logged In!"
     else

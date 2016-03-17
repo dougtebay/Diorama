@@ -1,5 +1,9 @@
 <%= form_tag '/tweets' %>
 Collection to placed in:<%= collection_select(:collection, :id, Collection.all, :id, :name) %>
+<!-- =======
+<%= form_tag '/tweets' do %>
+Collection to placed in:<%= collection_select(:collection, :id, Collection.all, :id, :name, name: 'collection[]') %>
+>>>>>>> Add get more tweets feature -->
 <% @tweets.each do |tweet| %>
 <p><label>User name: </label>
 <%= tweet.user_name %><br>
@@ -8,7 +12,11 @@ Collection to placed in:<%= collection_select(:collection, :id, Collection.all, 
 <%= tweet.date %><br>
 <%= check_box_tag 'tweet[]', tweet.twitter_id %>
 <%= tweet.text %><br></p>
-
 <% end %>
-
-<%= submit_tag %>
+<%= submit_tag 'Add to My Collection' %>
+<% end %>
+<%= form_tag '/tweets/search' do %>
+<%= hidden_field_tag :twitter_id, @tweets.last.twitter_id %>
+<%= hidden_field_tag :user_handle, @tweets.last.user_handle %>
+<%= submit_tag "Get More Tweets by #{@user_name}" %>
+<% end %>
