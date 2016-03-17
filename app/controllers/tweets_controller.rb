@@ -5,9 +5,10 @@ class TweetsController < ApplicationController
     end
     twitter_api = TwitterApi.new
     if params[:twitter_id]
-      @tweets = twitter_api.get_tweets(params[:user_handle], options={max_id: params[:twitter_id].to_i - 1})
+      @tweets = twitter_api.get_tweets(params[:user_name], options={max_id: params[:twitter_id].to_i - 1})
     else
-      @tweets = twitter_api.get_tweets(params[:user_handle], options={})
+      @tweets = twitter_api.get_tweets(params[:user_name], options={})
+       # binding.pry
     end
     render :search
   end
