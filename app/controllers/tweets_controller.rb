@@ -16,6 +16,6 @@ class TweetsController < ApplicationController
       tweet.save
       tweet.collections_tweets.create(collection_id: params[:collection][:id].to_i)    
     end
-    redirect_to collection_path(params[:collection][:id].to_i), notice: "YAAAAAY! Tweets are saved, this is a placeholder"
+    redirect_to collection_path(params[:collection][:id].to_i), notice: "Selected Tweets have been added"
   end
 end
