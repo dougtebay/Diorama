@@ -6,9 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(user_name: "dannygilbs", email: "danielgilberg@gmail.com", password_digest: "learnlovecode")
-User.create(user_name: "kimkardashian", email: "kimk@gmail.com", password_digest: "ilovekanye")
-User.create(user_name: "northwest", email: "northwest@gmail.com", password_digest: "mymomiskim")
+# User.all.clear
+# Collection.all.clear
+# Tweet.all.clear
+
+user1 = User.create(user_name: "dannygilbs", email: "danielgilberg@gmail.com", password_digest: "learnlovecode")
+user2 = User.create(user_name: "kimkardashian", email: "kimk@gmail.com", password_digest: "ilovekanye")
+user3 = User.create(user_name: "northwest", email: "northwest@gmail.com", password_digest: "mymomiskim")
+
+collection1 = user1.collections.build(name: "Funny Tweets", description: "Tweets that made me laugh")
+collection2 = user2.collections.build(name: "Breaking News", description: "Tweets about the news")
+collection3 = user3.collections.build(name: "Sports!", description: "Tweets about sports")
 
 
 
