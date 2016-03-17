@@ -14,5 +14,5 @@
 <%= form_tag '/tweets/search' do %> 
   <%= hidden_field_tag :twitter_id, @tweets.last.twitter_id  %>
   <%= hidden_field_tag :user_name, @tweets.last.user_handle %>
-  <%= submit_tag "Get More Tweets by #{@tweets.last.user_handle}" %>
+  <%= submit_tag "Get More Tweets by @#{@tweets.last.user_handle}" %>
 <% end %>
