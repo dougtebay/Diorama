@@ -1,5 +1,5 @@
 <%= form_tag '/tweets' %>
-Collection to placed in:<%= collection_select(:collection, :id, Collection.all, :id, :name, name: 'collection[]') %>
+Collection to placed in:<%= collection_select(:collection, :id, Collection.all, :id, :name) %>
 <% @tweets.each do |tweet| %>
 <p><label>User name: </label>
 <%= tweet.user_name %><br>

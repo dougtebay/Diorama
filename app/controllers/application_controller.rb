@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   
   before_action :authorize  
 
+  def about
+    render '/pages/about.html.erb'
+  end
+
   private
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]

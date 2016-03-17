@@ -1,5 +1,7 @@
 class TweetsController < ApplicationController
   def search
+    binding.pry
+    @collection= Collection.find(params[:collection].to_i)
     twitter_api = TwitterApi.new
     @tweets = twitter_api.get_tweets(params[:user_name])
     render :search
