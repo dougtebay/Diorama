@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'about', to: 'application#about', as: 'about'
 
   root to: 'collections#index'
   post 'tweets/search', :to => 'tweets#search'
+  delete 'tweets/:id', :to => 'tweets#destroy', as: 'destroy_tweet'
+  delete 'collections/:id', :to => 'collections#destroy', as: 'destroy_collection'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

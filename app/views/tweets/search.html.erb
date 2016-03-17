@@ -1,5 +1,5 @@
 <%= form_tag '/tweets' do %>
-Collection to placed in:<%= collection_select(:collection, :id, Collection.all, :id, :name, name: 'collection[]') %>
+Collection to placed in:<%= collection_select(:collection, :id, Collection.all, :id, :name) %>
 <% @tweets.each do |tweet| %>
 <p><label>User name: </label>
 <%= tweet.user_name %><br>
@@ -14,5 +14,5 @@ Collection to placed in:<%= collection_select(:collection, :id, Collection.all, 
 <%= form_tag '/tweets/search' do %>
 <%= hidden_field_tag :twitter_id, @tweets.last.twitter_id %>
 <%= hidden_field_tag :user_handle, @tweets.last.user_handle %>
-<%= submit_tag "Get More Tweets by #{@user_name}" %>
+<%= submit_tag "Get More Tweets by #{@tweets.last.user_handle}" %>
 <% end %>

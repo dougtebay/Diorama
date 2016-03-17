@@ -1,2 +1,11 @@
 <h2>Edit Collection</h2>
 <%= render partial: 'form', locals: {collection: @collection} %>
+<ul>
+<%@collection.tweets.each do |tweet|%>
+  <li><%= tweet.user_name %><br>
+  @<%= tweet.user_handle %><br>
+  <%= tweet.text%><br>
+  <%= tweet.date %><br></li>
+  <%=link_to "Remove from collection", destroy_tweet_path(tweet), {method: 'delete'}%>
+<%end%>
+</ul>

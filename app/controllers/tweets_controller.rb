@@ -1,6 +1,8 @@
 class TweetsController < ApplicationController
   def search
-    #@user_name = params[:user_name]
+    if params[:collection]
+      @collection= Collection.find(params[:collection].to_i)
+    end
     twitter_api = TwitterApi.new
     if params[:twitter_id]
       @tweets = twitter_api.get_tweets(params[:user_handle], options={max_id: params[:twitter_id].to_i - 1})
@@ -19,6 +21,13 @@ class TweetsController < ApplicationController
       tweet.save
       tweet.collections_tweets.create(collection_id: params[:collection][:id].to_i)    
     end
-    redirect_to collection_path(params[:collection][:id].to_i), notice: "YAAAAAY! Tweets are saved, this is a placeholder"
+    redirect_to collection_path(params[:collection][:id].to_i), notice: "Selected Tweets have been added"
+  end
+
+  def destroy 
+    @tweet=Tweet.find(params[:id])
+    @collection=@tweet.collections.first
+    @tweet.destroy
+    redirect_to edit_collection_path(@collection), notice: "That tweet has been removed from this collection"
   end
 end
