@@ -11,24 +11,12 @@ class TwitterApi
    end
  end
 
- # def user_tweets(user, count)
- #   tweets = @client.user_timeline(user, options={count: count})
- #   tweets.each {|tweet| puts "#{tweet.text}\n\n"}
- # end
-
- # def created_at
- #    tweet= self.Twitter::created_at
- # end
-
   def get_tweets(user_name, options)
-    #binding.pry
     tweets = @client.user_timeline(user_name, options)
     tweets.map {|tweet| self.parse_tweet(tweet) }
   end
 
   def parse_tweet(tweet)
-    #takes the info for the tweet from the API itself, then saves it to db
- 
     twitter_id = tweet.id.to_s
     date = tweet.created_at.to_datetime
     text = tweet.text

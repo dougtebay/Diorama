@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user= User.new(users_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to new_collection_path, notice: "Thank you for signing up!"
+      redirect_to new_collection_path, notice: "Thank you for signing up! Start by creating a new collection."
     else
       render "new"
     end

@@ -1,0 +1,17 @@
+.tweet {
+  background-color: #FFE0B2;
+  width: 400px;
+  padding-top: 3px;
+  padding-right: 20px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  margin: 10px;
+}
+
+.user_name {
+  font-weight: bold;
+}
+
+.user_handle {
+  color: #616161;
+}

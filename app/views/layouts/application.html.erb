@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Diorama</title>
+  <link rel="stylesheet" type="text/css" href="../../assets/stylesheets/stylesheet.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,7 +10,7 @@
 <body>
   <div id='container'>
     <div id='user_header' align="right">
-    <%= link_to "Home", root_path %> |
+    <%= link_to "My Collections", root_path %> |
     <%= link_to "About", about_path %> |
     <% if current_user %> 
       Logged in as: <%= current_user.user_name.capitalize %> |

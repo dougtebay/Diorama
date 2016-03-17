@@ -1,15 +1,15 @@
 <%= form_tag '/tweets' do %>
 Collection to placed in:<%= collection_select(:collection, :id, Collection.all, :id, :name) %>
 <% @tweets.each do |tweet| %>
-<p><label>User name: </label>
-<%= tweet.user_name %><br>
-<label>User handle: </label>
-<%= tweet.user_handle %><br>
-<%= tweet.date %><br>
-<%= check_box_tag 'tweet[]', tweet.twitter_id %>
-<%= tweet.text %><br></p>
+<div class='tweet'>
+  <p><span class='user_name'><%= tweet.user_name %></span>
+  <span class='user_handle'><%= "@#{tweet.user_handle}" %></span><br>
+  <%= tweet.date %><br>
+  <%= check_box_tag 'tweet[]', tweet.twitter_id %>
+  <%= tweet.text %><br></p>
+</div>
 <% end %>
-<%= submit_tag 'Add to My Collection' %>
+<%= submit_tag "Add These Tweets" %>
 <% end %>
 <%= form_tag '/tweets/search' do %>
 <%= hidden_field_tag :twitter_id, @tweets.last.twitter_id %>

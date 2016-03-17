@@ -8,5 +8,7 @@
 </ul>
 
 <div id='search_box' align="left">
-      Search for Tweets by: <%= form_tag '/tweets/search' %><%= search_field_tag :user_handle %>
+  <br><label>Search for tweets by username:</label>
+  <p><%= form_tag '/tweets/search' %><%= search_field_tag :user_handle %>
+  <%= submit_tag 'Search' %></p>
 </div>
