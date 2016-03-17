@@ -1,7 +1,5 @@
-<h1><%=@collection.name%></h1><br>
-<h3><%=@collection.description%></h3><br>
-
-<u>This is a link to add tweets by <!-- HERE IS THE SEARCH BOX --> Search Box</u>
+<h1><%=@collection.name%></h1>
+<h3><%=@collection.description%></h3>
 <ul>
 <%@collection.tweets.each do |tweet|%>
 <li>
@@ -13,3 +11,11 @@
 </li>
 <%end%>
 </ul>
+
+<div id='search_box' align="left">
+      Add tweets to this collection: 
+      <%= form_tag '/tweets/search' %>
+      <%= search_field_tag :user_name %>
+      <input type="hidden" name="collection" value=<%= @collection.id%> >
+      <%= submit_tag "Search for tweets by this user" %>
+</div>
