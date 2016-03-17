@@ -16,4 +16,11 @@ class TweetsController < ApplicationController
     end
     redirect_to collection_path(params[:collection][:id].to_i), notice: "YAAAAAY! Tweets are saved, this is a placeholder"
   end
+
+  def destroy 
+    @tweet=Tweet.find(params[:id])
+    @collection=@tweet.collections.first
+    @tweet.destroy
+    redirect_to edit_collection_path(@collection), notice: "That tweet has been removed from this collection"
+  end
 end

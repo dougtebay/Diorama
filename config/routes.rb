@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   root to: 'collections#index'
   post 'tweets/search', :to => 'tweets#search'
+  delete 'tweets/:id', :to => 'tweets#destroy', as: 'destroy_tweet'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
