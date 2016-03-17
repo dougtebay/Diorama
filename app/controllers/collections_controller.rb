@@ -23,7 +23,7 @@ class CollectionsController < ApplicationController
     if @collection.valid?
       @collection.save
       @user.collections << @collection
-      redirect_to @collection 
+      redirect_to root_path 
     else
       render :new 
     end
