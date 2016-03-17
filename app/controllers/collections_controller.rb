@@ -18,7 +18,7 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    @user = User.find(session[:id])
+    @user = User.find(session[:user_id])
     @collection = Collection.new(collection_params)
     if @collection.valid?
       @collection.save
@@ -34,7 +34,7 @@ class CollectionsController < ApplicationController
   end
 
   def index
-    @collections = Collection.all 
+    @collections = Collection.all.where(user_id: session[:user_id]) 
   end
 
   def destroy
