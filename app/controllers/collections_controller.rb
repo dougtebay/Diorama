@@ -39,7 +39,9 @@ class CollectionsController < ApplicationController
 
   def destroy
     @collection = Collection.find(params[:id])
+    @deleted_name = @collection.name
     @collection.destroy
+    redirect_to root_path, notice: "'#{@deleted_name}' has been deleted"
   end
 
   def edit
