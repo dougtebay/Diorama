@@ -10,10 +10,9 @@ class TweetsController < ApplicationController
     @tweets = params[:tweet].map do |twt_id|
       app.get_one_tweet(twt_id)
     end
-    binding.pry
     @tweets.each do |tweet| 
       tweet.save
-      params[:collection]
+      tweet.collections_tweets.create(collection_id: params[:collection][:id].to_i)    
     end
     redirect_to root_path, notice: "YAAAAAY! Tweets are saved, this is a placeholder"
   end
