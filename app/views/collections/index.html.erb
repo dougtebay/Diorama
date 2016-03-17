@@ -1,6 +1,13 @@
+<h1>My Collections </h1>
 <ul>
 <%@collections.each do |collection|%>
   <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%></li>
 
 <%end%>
+
+
 </ul>
+
+<div id='search_box' align="left">
+      Search for Tweets by: <%= form_tag '/tweets/search' %><%= search_field_tag :user_name %>
+</div>
