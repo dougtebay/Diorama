@@ -13,6 +13,24 @@
 
 require 'rails_helper'
 
-RSpec.describe Tweet, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Tweet do
+  before(:each) do
+    @tweet= Tweet.create(user_name:"bobbo", user_handle: "@bobbo", text:"Blocked, blocked, you're all blocked, none of you are free from sin", date: Datetime.new(2013, 02, 04))
+  end
+
+  it 'can be created' do
+    expect(@tweet.class).to eq(Tweet)
+  end
+
+  it 'is invalid without attributes' do
+    expect(@tweet).to be_valid
+  end
+
+
+  describe "parse_tweet" do
+    it "can take a tweet's information and persist it all to the database" do
+      persisted_tweet= @tweet.parse_tweet
+      expect()
+
+  
 end

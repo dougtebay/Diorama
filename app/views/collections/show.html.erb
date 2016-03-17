@@ -1,6 +1,15 @@
 <h1><%=@collection.name%></h1><br>
 <h3><%=@collection.description%></h3><br>
 
+<u>This is a link to add tweets by <!-- HERE IS THE SEARCH BOX --> Search Box</u>
+<ul>
 <%@collection.tweets.each do |tweet|%>
-<%=tweet%>
+<li>
+<%= tweet.user_name %><br>
+@<%= tweet.user_handle %><br>
+<%= tweet.text%><br>
+<%= tweet.date %><br>
+<p></p>
+</li>
 <%end%>
+</ul>

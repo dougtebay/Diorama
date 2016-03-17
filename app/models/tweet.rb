@@ -14,5 +14,5 @@
 class Tweet < ActiveRecord::Base
   has_many :collections_tweets
   has_many :collections, through: :collections_tweets
-  
+  validates_presence_of :user_name, :user_handle, :text, :date
 end

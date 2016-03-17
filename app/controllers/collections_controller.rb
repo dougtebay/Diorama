@@ -18,12 +18,12 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    @user = User.find(1)
+    @user = User.find(session[:id])
     @collection = Collection.new(collection_params)
     if @collection.valid?
       @collection.save
       @user.collections << @collection
-      redirect_to @collection 
+      redirect_to root_path 
     else
       render :new 
     end
@@ -59,5 +59,9 @@ class CollectionsController < ApplicationController
 
   def collection_params
     params.require(:collection).permit(:name, :description, :private?)
+  end
+
+  def search_params
+    params.permit(:user_name)
   end
 end
