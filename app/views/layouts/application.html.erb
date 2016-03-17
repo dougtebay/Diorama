@@ -13,7 +13,7 @@
     <%= link_to "My Collections", root_path %> |
     <%= link_to "About", about_path %> |
     <% if current_user %> 
-      Logged in as: <%= current_user.user_name.capitalize %> |
+      Logged in as: <%= current_user.user_name %> |
       <%= link_to "Logout", session_path("current"), method: "delete" %>
     <% end %>
 
@@ -30,5 +30,6 @@
 
 <%= yield %>
 
+  <%= link_to "Back", :back %>
 </body>
 </html>

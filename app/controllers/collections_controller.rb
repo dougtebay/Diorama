@@ -63,7 +63,4 @@ class CollectionsController < ApplicationController
     params.require(:collection).permit(:name, :description, :private?)
   end
 
-  def search_params
-    params.permit(:user_name)
-  end
 end

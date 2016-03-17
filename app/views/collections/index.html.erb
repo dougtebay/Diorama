@@ -4,8 +4,9 @@
   <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%></li>
 
 <%end%>
-
 </ul>
+
+<p><strong><%= link_to "Make a New Collection", new_collection_path %></strong></P>
 
 <div id='search_box' align="left">
   <br><label>Search for tweets by username:</label>
