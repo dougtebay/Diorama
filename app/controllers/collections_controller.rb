@@ -18,7 +18,7 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    @user = User.find(1)
+    @user = User.find(session[:id])
     @collection = Collection.new(collection_params)
     if @collection.valid?
       @collection.save
