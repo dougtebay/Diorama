@@ -29,4 +29,9 @@ class TwitterApi
     tweet = @client.status(id)
     parse_tweet(tweet)
   end
+
+  def validate_user(screen_name)
+    @client.user?(screen_name)
+  end
+  
 end

@@ -1,16 +1,21 @@
 class TweetsController < ApplicationController
   def search
+    
     if params[:collection]
       @collection= Collection.find(params[:collection].to_i)
     end
     twitter_api = TwitterApi.new
-    if params[:twitter_id]
-      @tweets = twitter_api.get_tweets(params[:user_name], options={max_id: params[:twitter_id].to_i - 1})
+    if twitter_api.validate_user(params[:user_name])
+      if params[:twitter_id]
+        @tweets = twitter_api.get_tweets(params[:user_name], options={max_id: params[:twitter_id].to_i - 1})
+      else
+        @tweets = twitter_api.get_tweets(params[:user_name], options={})
+         # binding.pry
+      end
+      render :search
     else
-      @tweets = twitter_api.get_tweets(params[:user_name], options={})
-       # binding.pry
+      redirect_to root_path, notice: "That user is not valid."
     end
-    render :search
   end
 
   def create
