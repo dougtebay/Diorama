@@ -1,17 +1,32 @@
 .tweet {
-  background-color: #FFE0B2;
+  background-color: #64B5F6;
   width: 400px;
-  padding-top: 3px;
-  padding-right: 20px;
-  padding-bottom: 3px;
-  padding-left: 20px;
-  margin: 10px;
+  padding-right: 18px;
+  padding-left: 18px;
+}
+
+.tweet_head {
+  margin-top: 12px;
+  padding-top: 14px;
+  padding-bottom: 8px;
+}
+
+.tweet_body {
+  padding-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .user_name {
   font-weight: bold;
 }
 
-.user_handle {
-  color: #616161;
+.user_handle_and_date {
+  color: #424242;
+}
+
+.check_box {
+  position: relative;
+  bottom: 2px;
+  left: 8px;
+  float: right;
 }
