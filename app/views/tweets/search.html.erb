@@ -1,13 +1,13 @@
 <%= form_tag '/tweets' do %>
-  Collection to placed in:<%= collection_select(:collection, :id, Collection.all, :id, :name) %>
+  Collection to placed in:<%= collection_select(:collection, :id, Collection.all.where(user_id: session[:user_id]), :id, :name) %>
   <% @tweets.each do |tweet| %>
-    <p><label>User name: </label>
-    <%= tweet.user_name %><br>
-    <label>User handle: </label>
-    <%= tweet.user_handle %><br>
-    <%= tweet.date %><br>
-    <%= check_box_tag 'tweet[]', tweet.twitter_id %>
-    <%= tweet.text %><br></p>
+    <div class='tweet tweet_head'>
+    <span class='check_box'><%= check_box_tag 'tweet[]', tweet.twitter_id %></span>
+    <span class='user_name'><%= tweet.user_name %></span>
+    <span class='user_handle_and_date'><%= "@#{tweet.user_handle} · #{tweet.date.strftime("%b %d, %Y")}" %></span></div>
+    <div class='tweet tweet_body'>
+    <%= tweet.text %>
+  </div>
   <% end %>
   <%= submit_tag 'Add to My Collection' %>
 <% end %>

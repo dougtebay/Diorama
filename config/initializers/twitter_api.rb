@@ -18,7 +18,7 @@ class TwitterApi
 
   def parse_tweet(tweet)
     twitter_id = tweet.id.to_s
-    date = tweet.created_at.to_datetime
+    date = tweet.created_at
     text = tweet.text
     user_name = tweet.user.name
     user_handle = tweet.user.screen_name

@@ -1,16 +1,4 @@
+<br><br><br><br><br><br><span class='header'>Diorama</span>
 <h1 align="center">Log In</h1>
 
-<%= form_tag sessions_path do %>
-  <div class='field' align="center">
-    <%= label_tag :user_name %><br>
-    <%= text_field_tag :user_name, params[:user_name] %>
-  </div>
-  <div class='field' align="center">
-    <%= label_tag :password %><br>
-    <%= text_field_tag :password %>
-  </div>
-  <div class='actions' align="center"><%= submit_tag 'Log In' %></div>
-  <div class='signup' align="center">
-  Or: <%= link_to 'Sign Up', signup_path %> 
-  </div>
-<% end %>
+<p align="center"><%= button_to "Login using twitter", '/auth/twitter' %></p>

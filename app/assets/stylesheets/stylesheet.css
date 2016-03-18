@@ -1,17 +1,143 @@
+@font-face {
+  font-family: "IntroRustG-Base2Line";
+  src: url("./fonts/IntroRustG-Base2Line.otf");
+}
+
+@font-face {
+  font-family: "quick_end_jerk";
+  src: url("./fonts/quick_end_jerk.ttf");
+}
+
+@font-face {
+  font-family: "Blackout-Midnight";
+  src: url("./fonts/Blackout-Midnight.ttf");
+}
+
+/*@font-face {
+  font-family: "Carousel";
+  src: url("./fonts/Carousel.ttf");
+}*/
+
+@font-face {
+  font-family: "CevicheOne-Regular";
+  src: url("./fonts/CevicheOne-Regular.otf");
+}
+
+@font-face {
+  font-family: "Amaranth-Bold";
+  src: url("./fonts/Amaranth-Bold.otf");
+}
+
+/** {
+  border: 1px dashed blue;
+}*/
+
+.navbar_container {
+  left: 0px;
+  top: 0px;
+  background-color: white;
+  position: fixed;
+    width: 100%;
+    height: 50px;
+    z-index: 100;
+    -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navbar {
+  color: #424242;
+  font-size: 20px;
+  font-family: 'Amaranth-Bold';
+  width: 98%;
+  text-align: right;
+  position: relative;
+  top: 32%;
+}
+
+.navbar_item {
+padding-right: 10px;
+  padding-left: 10px;
+}
+
+.header {
+  font-size: 150px;
+  font-family: "quick_end_jerk";
+  /*color: black;
+   -webkit-text-fill-color: white;
+   -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: black;*/
+}
+
+html {
+  background: transparent;
+}
+
+.container {
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .tweet {
-  background-color: #FFE0B2;
+  margin: auto;
+  background-color: #64B5F6;
   width: 400px;
-  padding-top: 3px;
-  padding-right: 20px;
-  padding-bottom: 3px;
-  padding-left: 20px;
-  margin: 10px;
+  padding-right: 18px;
+  padding-left: 18px;
+  color: #000000;
+}
+
+.tweet_head {
+  margin-top: 12px;
+  padding-top: 14px;
+  padding-bottom: 8px;
+}
+
+.tweet_body {
+  padding-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .user_name {
   font-weight: bold;
 }
 
-.user_handle {
-  color: #616161;
+.user_handle_and_date {
+  color: #424242;
+}
+
+.check_box {
+  position: relative;
+  bottom: 2px;
+  left: 8px;
+  float: right;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: #424242;
+}
+
+a:hover {
+  color: #00C853;
+}
+
+a:active {
+  color: #00C853;
+}
+
+a:visited {
+  color: #424242;
 }

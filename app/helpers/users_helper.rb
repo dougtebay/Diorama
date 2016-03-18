@@ -2,12 +2,11 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  twitter_profile :string
-#  email_add       :string
-#  password        :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_name  :string
+#  email      :string
 #
 
 module UsersHelper

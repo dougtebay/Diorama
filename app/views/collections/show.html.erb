@@ -2,19 +2,16 @@
 <h3><%=@collection.description%></h3>
 <p><%=link_to "Edit This Collection", edit_collection_path(@collection)%></p>
 <%=link_to "Delete this collection", destroy_collection_path(@collection), {method: 'delete'}%>
-<ul>
 <%@collection.tweets.each do |tweet|%>
-<li>
-<%= tweet.user_name %><br>
-@<%= tweet.user_handle %><br>
-<%= tweet.text%><br>
-<%= tweet.date %><br>
-<p></p>
-</li>
+  <div class='tweet tweet_head'>
+    <span class='user_name'><%= tweet.user_name %></span>
+    <span class='user_handle_and_date'><%= "@#{tweet.user_handle} · #{tweet.date.strftime("%b %d, %Y")}" %></span></div>
+    <div class='tweet tweet_body'>
+    <%= tweet.text %>
+  </div>
 <%end%>
-</ul>
 
-<div id='search_box' align="left">
+<div id='search_box' align="left" style='text-align: center'>
       Add tweets to this collection: 
       <%= form_tag '/tweets/search' %>
       <%= text_field_tag :user_name %>
