@@ -20,6 +20,9 @@
       <%= link_to "Logout", session_path("current"), method: "delete" %>
       </span>
     <% end %>
+    <% if current_user.nil? %>
+      Log in with Twitter: <%= link_to "Login", '/auth/twitter' %>
+    <% end %>
 
       <% if flash[:notice] %>
       <div class='notice' align="left">

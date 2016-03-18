@@ -1,13 +1,16 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: authorizations
 #
 #  id         :integer          not null, primary key
+#  provider   :string
+#  uid        :string
+#  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_name  :string
-#  email      :string
 #
 
-module UsersHelper
+class Authorization < ActiveRecord::Base
+  belongs_to :user
+  
 end
