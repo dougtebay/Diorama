@@ -6,9 +6,9 @@
 #  name        :string
 #  user_id     :integer
 #  description :string
-#  private?    :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  privacy     :boolean          default(TRUE)
 #
 
 class CollectionsController < ApplicationController
@@ -23,6 +23,10 @@ class CollectionsController < ApplicationController
     if @collection.valid?
       @collection.save
       @user.collections << @collection
+      if collection_params[:privacy]
+        @collection.activate
+        @collection.save
+      end
       redirect_to root_path 
     else
       render :new 
@@ -34,7 +38,8 @@ class CollectionsController < ApplicationController
   end
 
   def index
-    @collections = Collection.all.where(user_id: session[:user_id]) 
+    @collections = Collection.all.where(privacy: false)
+    @user_collections = Collection.all.where(user_id: session[:user_id]) 
   end
 
   def destroy
@@ -50,7 +55,13 @@ class CollectionsController < ApplicationController
 
   def update
     @collection=Collection.find(params[:id])
+    # @collection.set_privacy(collection_params[:privacy])
+      if collection_params[:privacy]
+        @collection.activate
+        @collection.save
+      end
     if @collection.update(collection_params)
+      binding.pry
       redirect_to @collection 
     else 
       render :edit 
@@ -60,7 +71,7 @@ class CollectionsController < ApplicationController
   private 
 
   def collection_params
-    params.require(:collection).permit(:name, :description, :private?)
+    params.require(:collection).permit(:name, :description, :privacy)
   end
 
 end

@@ -1,6 +1,6 @@
 <h1>My Collections </h1>
 <ul>
-<%@collections.each do |collection|%>
+<%@user_collections.each do |collection|%>
   <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%></li>
 
 <%end%>
@@ -17,3 +17,12 @@
       <% end %>
       <%= submit_tag "Search for tweets by this user" %>
 </div>
+
+
+<h1>Public Collections</h1>
+<%@collections.each do |collection|%>
+  <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%></li>
+
+<%end%>
+
+<ul>

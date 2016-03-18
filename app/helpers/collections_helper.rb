@@ -6,9 +6,9 @@
 #  name        :string
 #  user_id     :integer
 #  description :string
-#  private?    :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  privacy     :boolean          default(TRUE)
 #
 
 module CollectionsHelper
