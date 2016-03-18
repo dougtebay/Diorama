@@ -21,7 +21,7 @@
       </span>
     <% end %>
     <% if current_user.nil? %>
-      Log in with Twitter: <%= link_to "Login", '/auth/twitter' %>
+      <%= link_to "Log in with Twitter", '/auth/twitter' %>
     <% end %>
 
       <% if flash[:notice] %>

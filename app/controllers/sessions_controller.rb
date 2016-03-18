@@ -24,13 +24,13 @@ def create
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   if @authorization
     session[:user_id] = @authorization.user.id
-    redirect_to root_path, notice: "Welcome back #{@authorization.user.user_name}! You have already signed up."
+    redirect_to root_path
   else
     user = User.new :user_name => auth_hash.info.name, :email => auth_hash.info.email
     user.authorizations.build :provider => auth_hash.provider, :uid => auth_hash["uid"]
     user.save
     session[:user_id]= user.id
-    redirect_to root_path, notice: "Welcome, #{@user.user_name}, you have signed up!"
+    redirect_to root_path
   end
 end
 
