@@ -12,9 +12,13 @@
     <div id='user_header' align="right">
     <%= link_to "My Collections", root_path %> |
     <%= link_to "About", about_path %> |
+
     <% if current_user %> 
       Logged in as: <%= current_user.user_name %> |
       <%= link_to "Logout", session_path("current"), method: "delete" %>
+    <% end %>
+    <% if current_user.nil? %>
+      Log in with Twitter: <%= link_to "Login", '/auth/twitter' %>
     <% end %>
 
       <% if flash[:notice] %>

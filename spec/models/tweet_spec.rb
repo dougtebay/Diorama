@@ -9,6 +9,7 @@
 #  date        :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  twitter_id  :string
 #
 
 require 'rails_helper'
