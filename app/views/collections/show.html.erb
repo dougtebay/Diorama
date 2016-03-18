@@ -1,3 +1,4 @@
+<div class='container'>
 <h1><%=@collection.name%></h1>
 <h3><%=@collection.description%></h3>
 <p><%=link_to "Edit This Collection", edit_collection_path(@collection)%></p>
@@ -17,4 +18,5 @@
       <%= text_field_tag :user_name %>
       <input type="hidden" name="collection" value=<%= @collection.id%> >
       <%= submit_tag "Search for tweets by this user" %>
+</div>
 </div>
