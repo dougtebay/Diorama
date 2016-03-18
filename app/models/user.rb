@@ -17,16 +17,11 @@ class User < ActiveRecord::Base
   validates_presence_of :user_name, :email
 
   def average_collection_length
-    total_tweets = 0.00
-    self.collections.each do |collection|
-      total_tweets += collection.tweets.count 
-    end
-    total_tweets/self.collections.count
+    self.tweets.count/self.collections.count
   end
 
   def tweets_saved_by_username(username)
     self.tweets.where(user_name: username)
-
   end
 
   def tweets_saved_by_handle(handle)
@@ -37,15 +32,37 @@ class User < ActiveRecord::Base
     self.tweets.map do |tweet|
       tweet.user_name
     end
+  end 
+
+  def self.all_tweets_saved
+    self.all.map do |user|
+      user.tweets 
+    end
   end
 
-  def find_most_common_saved
+
+  def most_common_saved
     all_usernames.group_by do |username|
       username
     end.values.max_by(&:size).first
   end
 
 
+  def profiles_by_popularity
+    ordered_tweets=self.tweets.group_by {|tweet| tweet.user_name}
+    ordered_tweets.sort_by {|username, tweets| tweets.length}
+  end
+
+  def top_five_profiles
+    array=self.profiles_by_popularity.map do |profiles|
+      profiles[0]
+    end
+    array[0..4]
+  end
+
+  def last_tweet_saved
+    self.tweets.last 
+  end
 
 
 
