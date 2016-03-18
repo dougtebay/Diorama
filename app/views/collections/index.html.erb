@@ -22,7 +22,7 @@
 </div>
 <h1>Public Collections</h1>
 <%@collections.each do |collection|%>
-  <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%>, created by <%= User.find(collection.user_id).user_name %></li>
+  <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%>, created by <%= link_to "#{collection.user.user_name}", user_by_name_path(collection.user.user_name) %></li>
 
 
 <%end%>

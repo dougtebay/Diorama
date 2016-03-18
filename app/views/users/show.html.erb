@@ -1,0 +1,7 @@
+<div class='container'>
+<h1><%= @user.user_name %></h1>
+
+<% @collections.each do |col| %>
+<%= link_to "#{col.name}: #{col.description}", col %>
+<% end %>
+</div>

@@ -39,7 +39,8 @@ class CollectionsController < ApplicationController
 
   def index
     @collections = Collection.all.where(privacy: false)
-    @user_collections = Collection.all.where(user_id: session[:user_id]) 
+    @user_collections = Collection.all.where(user_id: session[:user_id])
+    # @users = @collections.all.map {|col| col.user}
   end
 
   def destroy
