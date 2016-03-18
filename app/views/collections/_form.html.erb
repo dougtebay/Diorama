@@ -9,5 +9,7 @@
 <p><%=f.text_field :name%><br></p>
 <%=f.label :description%>
 <p><%=f.text_area :description%><br></p>
+<p><%=f.label :privacy, "Is this collection Private?"%>
+<%= f.check_box :privacy %> </p>
 <%=f.submit%>
 <%end%>

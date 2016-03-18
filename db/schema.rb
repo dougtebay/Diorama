@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318144006) do
+ActiveRecord::Schema.define(version: 20160318163146) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(version: 20160318144006) do
     t.string   "name"
     t.integer  "user_id"
     t.string   "description"
-    t.boolean  "private?"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "privacy",     default: true
   end
 
   create_table "collections_tweets", force: :cascade do |t|
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20160318144006) do
     t.integer  "tweet_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "tw_users", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tweets", force: :cascade do |t|
