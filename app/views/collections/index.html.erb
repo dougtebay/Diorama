@@ -1,6 +1,8 @@
+<div style='background: url(<%= asset_path "background1.jpg" %>) no-repeat center center fixed' class='container'>
+<div class='frosted_glass_container'>
 <h1>My Collections </h1>
 <ul>
-<%@collections.each do |collection|%>
+<%@user_collections.each do |collection|%>
   <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%></li>
 
 <%end%>
@@ -16,4 +18,14 @@
         <input type="hidden" name="collection" value=<%= @collection.id%> >
       <% end %>
       <%= submit_tag "Search for tweets by this user" %>
+</div>
+<h1>Public Collections</h1>
+<%@collections.each do |collection|%>
+  <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%>, created by <%= User.find(collection.user_id).user_name %></li>
+
+
+<%end%>
+
+<ul>
+</div>
 </div>
