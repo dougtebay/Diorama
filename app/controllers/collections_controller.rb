@@ -38,6 +38,7 @@ class CollectionsController < ApplicationController
   end
 
   def index
+    @user = User.find(session[:user_id])
     @collections = Collection.all.where(privacy: false)
     @user_collections = Collection.all.where(user_id: session[:user_id]) 
   end

@@ -37,14 +37,6 @@ ActiveRecord::Schema.define(version: 20160318163146) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "tw_users", force: :cascade do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tweets", force: :cascade do |t|
     t.string   "user_name"
     t.string   "user_handle"

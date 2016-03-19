@@ -6,6 +6,7 @@
   <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%></li>
 
 <%end%>
+
 </ul>
 
 <p><strong><%= link_to "Make a New Collection", new_collection_path %></strong></P>
@@ -19,6 +20,16 @@
       <% end %>
       <%= submit_tag "Search for tweets by this user" %>
 </div>
+
+<p>You have saved the most tweets from:</p>
+<ul>
+<%@user.top_five_profiles.each do |profile|%>
+<li><%=profile%></li>
+<%end%>
+</ul>
+<%=column_chart @user.top_five_profiles_with_count%>
+
+
 <h1>Public Collections</h1>
 <%@collections.each do |collection|%>
   <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%>, created by <%= User.find(collection.user_id).user_name %></li>
