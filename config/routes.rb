@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/auth/twitter/callback', to: 'sessions#create' 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'about', to: 'application#about', as: 'about'
+  get 'users/:name', to: 'users#show', as: 'user_by_name'
 
   root to: 'collections#index'
   post 'tweets/search', :to => 'tweets#search'
