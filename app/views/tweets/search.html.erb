@@ -1,4 +1,4 @@
-<div class='container'>
+<div style='background: url(<%= asset_path "background5.jpg" %>)' class='container'>
 <%= form_tag '/tweets' do %>
   Collection to placed in:<%= collection_select(:collection, :id, Collection.all.where(user_id: session[:user_id]), :id, :name) %>
   <% @tweets.each do |tweet| %>

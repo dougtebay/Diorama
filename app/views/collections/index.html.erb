@@ -1,32 +1,44 @@
 
 <div style='background: url(<%= asset_path "background1.jpg" %>) no-repeat center center fixed' class='container'>
 <div class='frosted_glass_container'>
-<h1>My Collections </h1>
-<ul>
+<div class='page_head'>Your Collections</div>
+<div class='collections_list'>
+<% if @user_collections.any? %>
 <%@user_collections.each do |collection|%>
-  <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%></li>
-
+  <p><div class='collection_title'>
+  <%=link_to collection.name, collection_path(collection)%>
+  </div>
+  <%=collection.description%></p>
 <%end%>
-</ul>
-
-<p><strong><%= link_to "Make a New Collection", new_collection_path %></strong></P>
-
-<div id='search_box' align="left" style='text-align: center'>
-      Add tweets to a collection: 
-      <%= form_tag '/tweets/search' %>
-      <%= text_field_tag :user_name %>
-      <% if @collection %>
-        <input type="hidden" name="collection" value=<%= @collection.id%> >
-      <% end %>
-      <%= submit_tag "Search for tweets by this user" %>
+<% else %>
+<p><span class='no_collections'>You have no collections.</span></p>
+<% end %>
 </div>
-<h1>Public Collections</h1>
+<div class='center'>
+<div class='inline_element'>
+<%= button_to "Make a New Collection", new_collection_path, method: 'get', class: 'button' %>
+</div>
+      <div class='inline_element'>
+      <%= form_tag '/tweets/search' %>
+      <%= text_field_tag :user_name, nil, placeholder: '@username', class: 'search_field' %>
+      <% if @collection %>
+        <input type="hidden" name="collection" value=<%= @collection.id%>>
+      <% end %>
+      <%= submit_tag "Search for Tweets", class: 'button' %>
+</div>
+</div>
+<div class='page_head'>Public Collections</div>
+<div class='collections_list'>
+<% if @collections.any? %>
 <%@collections.each do |collection|%>
-  <li><%=link_to collection.name, collection_path(collection)%>: <%=collection.description%>, created by <%= User.find(collection.user_id).user_name %></li>
-
-
+<div class='collection_title'>
+  <%=link_to collection.name, collection_path(collection)%> by <%= User.find(collection.user_id).user_name %>
+</div>
+  <%=collection.description%>
+  </div>
 <%end%>
-
-<ul>
+<% else %>
+<p><span class='no_collections'>There are no public collections.</span></p>
+<% end %>
 </div>
 </div>
