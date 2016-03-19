@@ -16,6 +16,23 @@ html {
   src: url("./fonts/quick_end_jerk.ttf");
 }
 
+.chartkick {
+  padding-top: 0px;
+  padding-bottom: 30px;
+  width: 850px;
+}
+
+.chartkick_head {
+  background-color: #FFFFFF;
+  text-align: center;
+  padding-top: 15px;
+  font-family: "OpenSans-Bold";
+  width: 850px;
+  position: relative;
+  top: 20px;
+  z-index: 1;
+}
+
 /*@font-face {
   font-family: "Blackout-Midnight";
   src: url("./fonts/Blackout-Midnight.ttf");
@@ -108,29 +125,29 @@ padding-right: 10px;
   color: #616161;
   background: rgba(255,255,255,0.85);
   width: 900px;
-  max-height: 900px;
+  height: 900px;
   padding-left: 60px;
   padding-right: 60px;
   padding-bottom: 40px;
   margin: auto;
   display: inline-block;
   text-align: left;
-  overflow: hidden;
-}
-
-.tweets_list {
   overflow: scroll;
-  max-height: 800px;
 }
 
-.tweets_list_header {
+.frosted_glass_body {
+  overflow: scroll;
+  height: 760px;
+}
+
+.frosted_glass_header {
   
   height: 40px;
   padding-top: 30px;
   padding-bottom: 30px;
 }
 
-.tweets_list_footer {
+.frosted_glass_footer {
   height: 40px;
 }
 
@@ -168,7 +185,7 @@ padding-right: 10px;
 }
 
 .page_head {
-  padding-top: 50px;
+  padding-top: 20px;
   text-align: left;
   font-family: 'Amaranth-Bold';
   font-size: 45px;
@@ -250,12 +267,12 @@ background: #F06292;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 15px;
-  width: 250px;
+  width: 300px;
   background:rgba(248, 187, 208, 1);
   border: 0px;
   outline: 0px;
   margin-right: -4px;
-  margin-left: 60px;
+  margin-left: 140px;
 }
 textarea, input { outline: none; }
 .search_field::-webkit-input-placeholder,
@@ -304,13 +321,13 @@ input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
 
 #add_tweets {
   position: relative;
-  bottom: 870px;
+  bottom: 830px;
   left: 749px;
 }
 
 #get_more_tweets {
   position: relative;
-  bottom: 870px;
+  bottom: 830px;
   left: -118px;
 }
 
@@ -326,8 +343,8 @@ select {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 15px;
-  width: 350px;
+  width: 300px;
   outline: 0px;
   margin-right: -4px;
-  margin-left: 399px;
+  margin-left: 449px;
 }

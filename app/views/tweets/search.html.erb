@@ -1,10 +1,10 @@
 <div style='background: url(<%= asset_path "background2.jpg" %>) center center' class='container'>
 <div class='frosted_glass_container'>
-<div class='tweets_list_header'>
+<div class='frosted_glass_header'>
 <%= form_tag '/tweets' do %>
   <%= collection_select(:collection, :id, Collection.all.where(user_id: session[:user_id]), :id, :name) %>
 </div>
-<div class='tweets_list'>
+<div class='frosted_glass_body'>
 
   <% @tweets.each do |tweet| %>
     <div class='tweet tweet_head'>
@@ -16,7 +16,7 @@
   </div>
   <% end %>
 </div>
-<div class='tweets_list_footer'>
+<div class='frosted_glass_footer'>
 <%= submit_tag 'Add Tweets', class: 'button', id: 'add_tweets' %>
 <% end %>
 <%= form_tag '/tweets/search', class: 'inline_element' do %> 

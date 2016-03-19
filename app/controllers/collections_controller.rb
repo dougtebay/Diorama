@@ -51,7 +51,7 @@ before_action :authorized_to_interact
     @collection = Collection.find(params[:id])
     @deleted_name = @collection.name
     @collection.destroy
-    redirect_to root_path, notice: "'#{@deleted_name}' has been deleted"
+    redirect_to root_path
   end
 
   def edit
@@ -66,7 +66,7 @@ before_action :authorized_to_interact
         @collection.save
       end
     if @collection.update(collection_params)
-      binding.pry
+      
       redirect_to @collection 
     else 
       render :edit 

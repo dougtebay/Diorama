@@ -1,26 +1,6 @@
 <div style='background: url(<%= asset_path "background1.jpg" %>) no-repeat center center fixed' class='container'>
 <div class='frosted_glass_container'>
-<div class='page_head'>Your Collections</div>
-<div class='collections_list'>
-<% if @user_collections.any? %>
-<%@user_collections.each do |collection|%>
-  <p><div class='collection_title'>
-  <%=link_to collection.name, collection_path(collection)%>
-  </div>
-  <%=collection.description%></p>
-<%end%>
-
-</ul>
-
-<p><strong><%= link_to "Make a New Collection", new_collection_path %></strong></P>
-
-<div id='search_box' align="left" style='text-align: center'>
-      Add tweets to a collection: 
-
-<% else %>
-<p><span class='no_collections'>You have no collections.</span></p>
-<% end %>
-</div>
+<div class='frosted_glass_header'>
 <div class='center'>
 <div class='inline_element'>
 <%= button_to "Make a New Collection", new_collection_path, method: 'get', class: 'button' %>
@@ -34,20 +14,35 @@
       <% end %>
       <%= submit_tag "Search for Tweets", class: 'button' %>
 </div>
-
-
-<p>You have saved the most tweets from:</p>
-<ul>
-<%@user.top_five_profiles.each do |profile|%>
-<li><%=profile%></li>
-<%end%>
-</ul>
-<%=column_chart @user.top_five_profiles_with_count%>
-
-
-<h1>Public Collections</h1>
-
 </div>
+</div>
+<div class='frosted_glass_body'>
+<div class='page_head'>Your Collections</div>
+<div class='collections_list'>
+<% if @user_collections.any? %>
+<%@user_collections.each do |collection|%>
+  <p><div class='collection_title'>
+  <%=link_to collection.name, collection_path(collection)%>
+  </div>
+  <%=collection.description%></p>
+<%end%>
+
+
+<div id='search_box' align="left" style='text-align: center'>
+
+<% else %>
+<p><span class='no_collections'>You have no collections.</span></p>
+<% end %>
+</div>
+<div class='chartkick'>
+<div class='chartkick_head'>
+Your collections include the most tweets by:
+</div>
+<%=column_chart @user.top_five_profiles_with_count%>
+</div>
+
+
+
 <div class='page_head'>Public Collections</div>
 <div class='collections_list'>
 <% if @collections.any? %>
@@ -62,4 +57,7 @@
 <p><span class='no_collections'>There are no public collections.</span></p>
 <% end %>
 </div>
+</div>
+</div>
+<div class='frosted_glass_footer'></div>
 </div>
