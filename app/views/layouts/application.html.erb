@@ -13,7 +13,7 @@
     <% if current_user %>
     <span class='navbar_item'><%= link_to "Collections", root_path %></span>
       <span class='navbar_item'>
-      Logged in as: <%= link_to "#{current_user.user_name}", 'http://twitter.com/'  %>
+      Logged in as: <%= link_to "#{current_user.user_name}", user_path(current_user.user_name)  %>
       </span>
       <span class='navbar_item'>
       <%= link_to "Logout", session_path("current"), method: "delete" %>

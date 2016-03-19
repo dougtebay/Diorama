@@ -1,7 +1,9 @@
 <div class='container'>
 <h1><%= @user.user_name %></h1>
-
+<h3>Public Collections:</h3>
+<ul>
 <% @collections.each do |col| %>
-<%= link_to "#{col.name}: #{col.description}", col %>
+<li><%= link_to "#{col.name}: #{col.description}", col %></li>
 <% end %>
+</ul>
 </div>
