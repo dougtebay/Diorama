@@ -81,8 +81,10 @@ before_action :authorized_to_interact
   def authorized_to_interact
     if params[:id]
       @collection=Collection.find(params[:id])
-      unless (@collection.privacy != true) || (current_user == @collection.user_id)
-        redirect_to root_path, notice: "You are not authorized to call #{params[:action]} on #{@collection.name}" 
+      if current_user.id != @collection.user_id
+        if !(@collection.privacy != true) 
+          redirect_to root_path, notice: "You are not authorized to call #{params[:action]} on #{@collection.name}" 
+        end
       end
     end
   end
