@@ -1,16 +1,24 @@
-<div class='container'>
-<h2>Edit Collection</h2>
-<%= render partial: 'form', locals: {collection: @collection} %>
-<ul>
-<%@collection.tweets.each do |tweet|%>
-  <li><%= tweet.user_name %><br>
-  @<%= tweet.user_handle %><br>
-  <%= tweet.text%><br>
-  <%= tweet.date %><br></li>
+<div style='background: url(<%= asset_path "background2.jpg" %>) no-repeat center center fixed' class='container'>
+<div class='frosted_glass_container_short'>
 
-  <%=link_to "Remove from collection", destroy_tweet_path(tweet), method: :delete, name: @collection%>
+<div class='frosted_glass_header'>
+<div class='page_head center'>Edit Collection</div>
+</div>
+<%= render partial: 'form', locals: {collection: @collection} %>
+<% if @collection.tweets.any? %>
+<br><br>
+<div class='frosted_glass_body_short'>
+
+<%@collection.tweets.each do |tweet|%>
+<div class='tweet tweet_head'>
+  <span class='user_name'><%= tweet.user_name %></span>
+  <span class='user_handle_and_date'><%= "@#{tweet.user_handle} · #{tweet.date.strftime("%b %d, %Y")}" %></span>
+  <%=link_to "✖", destroy_tweet_path(tweet), method: :delete, name: @collection, class: '✖' %></div>
+  <div class='tweet tweet_body'>
+  <%= tweet.text%>
+  </div>
 
 <%end%>
-
-</ul>
+<% end %>
+</div>
 </div>

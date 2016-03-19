@@ -1,3 +1,4 @@
+<div class='frosted_glass_body_short'>
 <%if @collection.errors.any? %>
   <%@collection.errors.full_messages.each do |message|%>
     <%=message%><br>
@@ -5,11 +6,10 @@
 <%end%>
 
 <%= form_for collection do |f|%>
-<%=f.label :name%>
-<p><%=f.text_field :name%><br></p>
-<%=f.label :description%>
-<p><%=f.text_area :description%><br></p>
-<p><%=f.label :privacy, "Is this collection Private?"%>
+<p><%=f.text_field :name, placeholder: 'Name' %><br></p>
+<p><%=f.text_area :description, placeholder: 'Description' %><br></p>
+<p><%=f.label :privacy, "Is this collection private?"%>
 <%= f.check_box :privacy %> </p>
-<%=f.submit%>
+<%=f.submit class: 'button' %>
 <%end%>
+</div>

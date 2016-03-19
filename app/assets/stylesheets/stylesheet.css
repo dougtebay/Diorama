@@ -135,9 +135,31 @@ padding-right: 10px;
   overflow: scroll;
 }
 
+.frosted_glass_container_short {
+  margin-top: 50px;
+  border-radius: 1em;
+  font-family: "OpenSans-Regular";
+  color: #616161;
+  background: rgba(255,255,255,0.85);
+  width: 900px;
+  max-height: 900px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 60px;
+  margin: auto;
+  display: inline-block;
+  text-align: center;
+  overflow: scroll;
+}
+
 .frosted_glass_body {
   overflow: scroll;
   height: 760px;
+}
+
+.frosted_glass_body_short {
+  overflow: scroll;
+  max-height: 760px;
 }
 
 .frosted_glass_header {
@@ -181,12 +203,13 @@ padding-right: 10px;
   -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   font-size: 20px;
+  text-align: left;
 /*  text-shadow: 0px 0px 15px rgba(90, 90, 90, 15);*/
 }
 
 .page_head {
   padding-top: 20px;
-  text-align: left;
+  text-align: center;
   font-family: 'Amaranth-Bold';
   font-size: 45px;
   color: #1976D2;
@@ -260,6 +283,7 @@ background: #F06292;
 
 }
 
+
 .search_field {
   font-size: 16px;
   color: #FFFFFF;
@@ -302,6 +326,26 @@ input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
 input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
 input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
+
+textarea:focus::-webkit-input-placeholder { color:transparent; }
+textarea:focus:-moz-placeholder { color:transparent; } /* Firefox 18- */
+textarea:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
+textarea:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
+
+::-webkit-input-placeholder { /* Chrome */
+  color: #616161;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #616161;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #616161;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: #616161;
+  opacity: 1;
+}
 
 .no_collections {
   font-family: "OpenSans-Bold";
@@ -347,4 +391,39 @@ select {
   outline: 0px;
   margin-right: -4px;
   margin-left: 449px;
+}
+
+textarea {
+  font-family: "OpenSans-Regular";
+  border: 1px solid #E0E0E0;
+  font-size: 16px;
+  width: 500px;
+  height: 100px;
+  padding: 5px;
+  padding-left: 10px;
+}
+
+input[type="text"]#collection_name {
+  border: 1px solid #E0E0E0;
+  font-family: "OpenSans-Regular";
+  font-size: 16px;
+  width: 500px;
+  height: 30px;
+  padding: 5px;
+  padding-left: 10px;
+}
+
+.button[value='Create Collection'] {
+  margin-top: 8px;
+}
+
+.button[value='Update Collection'] {
+  margin-top: 8px;
+}
+
+.✖ {
+  position: relative;
+  top: -7px;
+  left: 9px;
+  float: right;
 }

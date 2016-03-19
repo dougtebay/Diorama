@@ -41,13 +41,13 @@ class TweetsController < ApplicationController
       tweet.save
       tweet.collections_tweets.create(collection_id: params[:collection][:id].to_i)    
     end
-    redirect_to collection_path(params[:collection][:id].to_i), notice: "Selected Tweets have been added"
+    redirect_to collection_path(params[:collection][:id].to_i)
   end
 
   def destroy 
     @tweet=Tweet.find(params[:id])
     @collection=@tweet.collections.first
     @tweet.destroy
-    redirect_to edit_collection_path(@collection), notice: "That tweet has been removed from this collection"
+    redirect_to edit_collection_path(@collection)
   end
 end
