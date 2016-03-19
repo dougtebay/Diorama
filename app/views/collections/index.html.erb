@@ -31,11 +31,10 @@
 <div class='collections_list'>
 <% if @collections.any? %>
 <%@collections.each do |collection|%>
-<div class='collection_title'>
+<p><div class='collection_title'>
   <%=link_to collection.name, collection_path(collection)%> by <%= link_to "#{collection.user.user_name}", user_by_name_path(collection.user.user_name) %>
 </div>
-  <%=collection.description%>
-  </div>
+  <%=collection.description%></p>
 <%end%>
 <% else %>
 <p><span class='no_collections'>There are no public collections.</span></p>

@@ -1,6 +1,11 @@
-<div style='background: url(<%= asset_path "background5.jpg" %>)' class='container'>
+<div style='background: url(<%= asset_path "background2.jpg" %>) center center' class='container'>
+<div class='frosted_glass_container'>
+<div class='tweets_list_header'>
 <%= form_tag '/tweets' do %>
-  Collection to placed in:<%= collection_select(:collection, :id, Collection.all.where(user_id: session[:user_id]), :id, :name) %>
+  <%= collection_select(:collection, :id, Collection.all.where(user_id: session[:user_id]), :id, :name) %>
+</div>
+<div class='tweets_list'>
+
   <% @tweets.each do |tweet| %>
     <div class='tweet tweet_head'>
     <span class='check_box'><%= check_box_tag 'tweet[]', tweet.twitter_id %></span>
@@ -10,11 +15,15 @@
     <%= tweet.text %>
   </div>
   <% end %>
-  <%= submit_tag 'Add to My Collection' %>
+</div>
+<div class='tweets_list_footer'>
+<%= submit_tag 'Add Tweets', class: 'button', id: 'add_tweets' %>
 <% end %>
-<%= form_tag '/tweets/search' do %> 
+<%= form_tag '/tweets/search', class: 'inline_element' do %> 
   <%= hidden_field_tag :twitter_id, @tweets.last.twitter_id  %>
   <%= hidden_field_tag :user_name, @tweets.last.user_handle %>
-  <%= submit_tag "Get More Tweets by @#{@tweets.last.user_handle}" %>
+  <%= submit_tag "Get More Tweets by @#{@tweets.last.user_handle}", class: 'button', id: 'get_more_tweets' %>
 <% end %>
+</div>
+</div>
 </div>
