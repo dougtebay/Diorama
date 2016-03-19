@@ -1,4 +1,3 @@
-
 <div style='background: url(<%= asset_path "background1.jpg" %>) no-repeat center center fixed' class='container'>
 <div class='frosted_glass_container'>
 <div class='page_head'>Your Collections</div>
@@ -10,6 +9,14 @@
   </div>
   <%=collection.description%></p>
 <%end%>
+
+</ul>
+
+<p><strong><%= link_to "Make a New Collection", new_collection_path %></strong></P>
+
+<div id='search_box' align="left" style='text-align: center'>
+      Add tweets to a collection: 
+
 <% else %>
 <p><span class='no_collections'>You have no collections.</span></p>
 <% end %>
@@ -19,6 +26,7 @@
 <%= button_to "Make a New Collection", new_collection_path, method: 'get', class: 'button' %>
 </div>
       <div class='inline_element'>
+
       <%= form_tag '/tweets/search' %>
       <%= text_field_tag :user_name, nil, placeholder: '@username', class: 'search_field' %>
       <% if @collection %>
@@ -26,10 +34,24 @@
       <% end %>
       <%= submit_tag "Search for Tweets", class: 'button' %>
 </div>
+
+
+<p>You have saved the most tweets from:</p>
+<ul>
+<%@user.top_five_profiles.each do |profile|%>
+<li><%=profile%></li>
+<%end%>
+</ul>
+<%=column_chart @user.top_five_profiles_with_count%>
+
+
+<h1>Public Collections</h1>
+
 </div>
 <div class='page_head'>Public Collections</div>
 <div class='collections_list'>
 <% if @collections.any? %>
+
 <%@collections.each do |collection|%>
 <p><div class='collection_title'>
   <%=link_to collection.name, collection_path(collection)%> by <%= link_to "#{collection.user.user_name}", user_by_name_path(collection.user.user_name) %>

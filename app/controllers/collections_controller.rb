@@ -41,6 +41,7 @@ before_action :authorized_to_interact
   end
 
   def index
+    @user = User.find(session[:user_id])
     @collections = Collection.all.where(privacy: false)
     @user_collections = Collection.all.where(user_id: session[:user_id])
     # @users = @collections.all.map {|col| col.user}

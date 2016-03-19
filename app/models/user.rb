@@ -56,11 +56,19 @@ class User < ActiveRecord::Base
     array=self.profiles_by_popularity.map do |profiles|
       profiles[0]
     end
-    array[0..4]
+    array.last(5)
   end
 
   def last_tweet_saved
     self.tweets.last 
+  end
+
+  def top_five_profiles_with_count
+    hash=Hash.new
+    self.top_five_profiles.each do |profile|
+      hash[profile]=self.tweets.where(user_name: profile).count
+    end
+    hash
   end
 
 
