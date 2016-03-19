@@ -26,6 +26,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user= User.find_by(user_name: params[:id])
+    @collections= @user.collections.where(privacy: false)
+  end
+
   private
 
   def users_params

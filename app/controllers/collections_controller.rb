@@ -13,6 +13,9 @@
 
 class CollectionsController < ApplicationController
 
+before_action :authorize
+before_action :authorized_to_interact
+
   def new
     @collection=Collection.new 
   end
@@ -39,7 +42,8 @@ class CollectionsController < ApplicationController
 
   def index
     @collections = Collection.all.where(privacy: false)
-    @user_collections = Collection.all.where(user_id: session[:user_id]) 
+    @user_collections = Collection.all.where(user_id: session[:user_id])
+    # @users = @collections.all.map {|col| col.user}
   end
 
   def destroy
@@ -72,6 +76,17 @@ class CollectionsController < ApplicationController
 
   def collection_params
     params.require(:collection).permit(:name, :description, :privacy)
+  end
+
+  def authorized_to_interact
+    if params[:id]
+      @collection=Collection.find(params[:id])
+      if current_user.id != @collection.user_id
+        if !(@collection.privacy != true) 
+          redirect_to root_path, notice: "You are not authorized to call #{params[:action]} on #{@collection.name}" 
+        end
+      end
+    end
   end
 
 end
