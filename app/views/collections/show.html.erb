@@ -23,4 +23,9 @@
       <%= submit_tag "Search for tweets by this user" %>
       <% end %>
 </div>
+
+<p align="center"> Contributors to this Collection</p>
+ <%= pie_chart @collection.chart_data_hash%>
+
+
 </div>
