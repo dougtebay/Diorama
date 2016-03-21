@@ -1,4 +1,3 @@
-<div class='frosted_glass_body_short'>
 <%if @collection.errors.any? %>
   <%@collection.errors.full_messages.each do |message|%>
     <%=message%><br>
@@ -12,4 +11,3 @@
 <%= f.check_box :privacy %> </p>
 <%=f.submit class: 'button' %>
 <%end%>
-</div>

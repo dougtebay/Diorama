@@ -1,5 +1,5 @@
 <div style='background: url(<%= asset_path "background1.jpg" %>) no-repeat center center fixed' class='container'>
-<div class='frosted_glass_container'>
+<div class='frosted_glass_container_short'>
 <div class='frosted_glass_header'>
 <div class='center'>
 <div class='inline_element'>
@@ -16,7 +16,7 @@
 </div>
 </div>
 </div>
-<div class='frosted_glass_body'>
+<div class='frosted_glass_body_short'>
 <div class='page_head'>Your Collections</div>
 <div class='collections_list'>
 <% if @user_collections.any? %>
@@ -26,20 +26,19 @@
   </div>
   <%=collection.description%></p>
 <%end%>
-
-
-<div id='search_box' align="left" style='text-align: center'>
-
-<% else %>
-<p><span class='no_collections'>You have no collections.</span></p>
-<% end %>
 </div>
+<% if @user.tweets.any? %>
 <div class='chartkick'>
 <div class='chartkick_head'>
 Your collections include the most tweets by:
 </div>
 <%=column_chart @user.top_five_profiles_with_count%>
 </div>
+<% end %>
+<% else %>
+<p><span class='no_collections'>You have no collections.</span></p>
+<% end %>
+
 
 
 

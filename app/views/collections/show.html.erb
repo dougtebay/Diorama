@@ -1,10 +1,23 @@
-<div class='container'>
-<h1><%=@collection.name%></h1>
-<h3><%=@collection.description%></h3>
+<div style='background: url(<%= asset_path "background2.jpg" %>) no-repeat center center fixed' class='container'>
+<div class='frosted_glass_container_short'>
+<div class='frosted_glass_header'>
 <% if session[:user_id] == @collection.user.id %>
-<p><%=link_to "Edit This Collection", edit_collection_path(@collection)%></p>
-<%=link_to "Delete this collection", destroy_collection_path(@collection), {method: 'delete'}%>
+<div class='inline_element'><%=button_to "Edit Collection", edit_collection_path(@collection), class: 'button', method: 'get' %></div>
+<div class='inline_element'><%=button_to "Delete Collection", destroy_collection_path(@collection), {method: 'delete', class: 'button'} %></div>
 <% end %>
+<div class='inline_element'>
+<% if session[:user_id] == @collection.user.id %>
+      <%= form_tag '/tweets/search' %>
+      <%= text_field_tag :user_name, nil, placeholder: '@username', class: 'search_field' %>
+      <% if @collection %>
+      <input type="hidden" name="collection" value=<%= @collection.id%> >
+      <% end %>
+      <%= submit_tag "Search for Tweets", class: 'button' %>
+      <% end %>
+</div>
+</div>
+<div class='frosted_glass_body_short'>
+<div class='page_head center'><%=@collection.name%></div><br><br>
 <%@collection.tweets.each do |tweet|%>
   <div class='tweet tweet_head'>
     <span class='user_name'><%= tweet.user_name %></span>
@@ -14,18 +27,14 @@
   </div>
 <%end%>
 
-<div id='search_box' align="left" style='text-align: center'>
-<% if session[:user_id] == @collection.user.id %>
-      Add tweets to this collection: 
-      <%= form_tag '/tweets/search' %>
-      <%= text_field_tag :user_name %>
-      <input type="hidden" name="collection" value=<%= @collection.id%> >
-      <%= submit_tag "Search for tweets by this user" %>
-      <% end %>
-</div>
 
-<p align="center"> Contributors to this Collection</p>
+
+ <div class='chartkick_head'>Contributors to this collection:</div>
+ <div class='chartkick piechart'>
  <%= pie_chart @collection.chart_data_hash%>
-
+ </div>
+</div>
+</div>
+</div>
 
 </div>

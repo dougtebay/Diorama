@@ -19,18 +19,25 @@ html {
 .chartkick {
   padding-top: 0px;
   padding-bottom: 30px;
-  width: 850px;
+  width: 660px;
+  margin: auto;
 }
 
 .chartkick_head {
+  margin: auto;
   background-color: #FFFFFF;
   text-align: center;
   padding-top: 15px;
+  padding-bottom: 15px;
   font-family: "OpenSans-Bold";
-  width: 850px;
+  width: 660px;
   position: relative;
   top: 20px;
   z-index: 1;
+}
+
+.piechart {
+  height: -100px;
 }
 
 /*@font-face {
@@ -94,10 +101,10 @@ padding-right: 10px;
 .title {
   padding-top: 2%;
   padding-bottom: 20px;
-  font-size: 170px;
+  font-size: 8.5vw;
   font-family: "quick_end_jerk";
   color: #1976D2;
-
+position: relative;
   /*color: black;
    -webkit-text-fill-color: white;
    -webkit-text-stroke-width: 2px;
@@ -107,14 +114,14 @@ padding-right: 10px;
 .subtitle {
   margin-top: 50px;
   color: #FFFFFF;
-  font-size: 30px;
+  font-size: 1.5vw;
   font-family: "OpenSans-Regular";
   text-shadow: 0px 0px 15px rgba(90, 90, 90, 15);
 }
 
 .collections_list {
-  padding-top: 15px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   text-align: left;
 }
 
@@ -125,7 +132,7 @@ padding-right: 10px;
   color: #616161;
   background: rgba(255,255,255,0.85);
   width: 900px;
-  height: 900px;
+  height: 700px;
   padding-left: 60px;
   padding-right: 60px;
   padding-bottom: 40px;
@@ -142,7 +149,7 @@ padding-right: 10px;
   color: #616161;
   background: rgba(255,255,255,0.85);
   width: 900px;
-  max-height: 900px;
+  max-height: 700px;
   padding-left: 60px;
   padding-right: 60px;
   padding-bottom: 60px;
@@ -154,12 +161,12 @@ padding-right: 10px;
 
 .frosted_glass_body {
   overflow: scroll;
-  height: 760px;
+  height: 560px;
 }
 
 .frosted_glass_body_short {
   overflow: scroll;
-  max-height: 760px;
+  max-height: 560px;
 }
 
 .frosted_glass_header {
@@ -174,7 +181,7 @@ padding-right: 10px;
 }
 
 .container {
-  padding-top: 140px;
+  padding-top: 10vh;
   color: #616161;
   text-align: center;
   position: absolute;
@@ -209,7 +216,7 @@ padding-right: 10px;
 
 .page_head {
   padding-top: 20px;
-  text-align: center;
+  text-align: left;
   font-family: 'Amaranth-Bold';
   font-size: 45px;
   color: #1976D2;
@@ -291,12 +298,12 @@ background: #F06292;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 15px;
-  width: 300px;
+  width: 250px;
   background:rgba(248, 187, 208, 1);
   border: 0px;
   outline: 0px;
-  margin-right: -4px;
-  margin-left: 140px;
+  margin-right: -5px;
+  margin-left: 87px;
 }
 textarea, input { outline: none; }
 .search_field::-webkit-input-placeholder,
@@ -365,13 +372,13 @@ textarea:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
 
 #add_tweets {
   position: relative;
-  bottom: 830px;
+  bottom: 630px;
   left: 749px;
 }
 
 #get_more_tweets {
   position: relative;
-  bottom: 830px;
+  bottom: 630px;
   left: -118px;
 }
 
@@ -426,4 +433,8 @@ input[type="text"]#collection_name {
   top: -7px;
   left: 9px;
   float: right;
+}
+
+.button[value='Edit Collection'] {
+  margin-right: 15px;
 }
