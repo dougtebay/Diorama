@@ -31,7 +31,7 @@ class TwitterApi
   end
 
   def validate_user(screen_name)
-    @client.user?(screen_name)
+    @client.user?(screen_name) && !(@client.user(screen_name).protected?)
   end
   
 end
