@@ -26,10 +26,6 @@ before_action :authorized_to_interact
     if @collection.valid?
       @collection.save
       @user.collections << @collection
-      if collection_params[:privacy]
-        @collection.activate
-        @collection.save
-      end
       redirect_to root_path 
     else
       render :new 
@@ -43,7 +39,6 @@ before_action :authorized_to_interact
   def index
     @collections = Collection.all.where(privacy: false)
     @user_collections = Collection.all.where(user_id: session[:user_id])
-    # @users = @collections.all.map {|col| col.user}
     @user = User.find(session[:user_id])
   end
 
@@ -60,13 +55,11 @@ before_action :authorized_to_interact
 
   def update
     @collection=Collection.find(params[:id])
-    # @collection.set_privacy(collection_params[:privacy])
       if collection_params[:privacy]
         @collection.activate
         @collection.save
       end
     if @collection.update(collection_params)
-      binding.pry
       redirect_to @collection 
     else 
       render :edit 
