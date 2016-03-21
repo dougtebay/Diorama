@@ -31,7 +31,10 @@ describe Tweet do
   describe "parse_tweet" do
     it "can take a tweet's information and persist it all to the database" do
       persisted_tweet= @tweet.parse_tweet
-      expect()
+      expect(@tweet)
+    end
+
+  describe 
 
   
 end
