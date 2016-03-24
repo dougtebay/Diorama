@@ -17,7 +17,6 @@ class TweetsController < ApplicationController
     
     if params[:collection]
       @collection= Collection.find(params[:collection].to_i)
-      binding.pry
     end
     twitter_api = TwitterApi.new
     if twitter_api.validate_user(params[:user_name])
