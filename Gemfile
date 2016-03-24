@@ -27,6 +27,7 @@ gem 'twitter'
 gem 'json'
 gem 'omniauth-twitter'
 gem 'better_errors'
+gem 'figaro'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
