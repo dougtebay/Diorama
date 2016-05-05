@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160318163146) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
