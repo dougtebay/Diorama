@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'about', to: 'application#about', as: 'about'
   get 'users/:name', to: 'users#show', as: 'user_by_name'
 
-  root to: 'application#about'
+  root to: 'collections#index'
   post 'tweets/search', :to => 'tweets#search'
   delete 'tweets/:id', :to => 'tweets#destroy', as: 'destroy_tweet'
   delete 'collections/:id', :to => 'collections#destroy', as: 'destroy_collection'
