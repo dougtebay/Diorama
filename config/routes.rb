@@ -7,12 +7,12 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
-  get '/auth/twitter/callback', to: 'sessions#new' 
+  get '/auth/twitter/callback', to: 'sessions#create' 
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'about', to: 'application#about', as: 'about'
   get 'users/:name', to: 'users#show', as: 'user_by_name'
 
-  root to: 'collections#index'
+  root to: 'application#about'
   post 'tweets/search', :to => 'tweets#search'
   delete 'tweets/:id', :to => 'tweets#destroy', as: 'destroy_tweet'
   delete 'collections/:id', :to => 'collections#destroy', as: 'destroy_collection'
