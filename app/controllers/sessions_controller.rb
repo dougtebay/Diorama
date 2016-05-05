@@ -24,11 +24,8 @@ def create
   @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
   if @authorization
     session[:user_id] = @authorization.user.id
-    puts "I'm in the create action of the sessions controller!"
     redirect_to about_path
   else
-    binding.pry
-    puts "I'm in the create action of the sessions controller!"
     user = User.new :user_name => auth_hash.info.name, :email => auth_hash.info.email
     user.authorizations.build :provider => auth_hash.provider, :uid => auth_hash["uid"]
     user.save
