@@ -1,0 +1,17 @@
+# Add configuration values here, as shown below.
+#
+# pusher_app_id: "2954"
+# pusher_key: 7381a978f7dd7f9a1117
+# pusher_secret: abdc3b896a0ffb85d373
+# stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
+# stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
+#
+# production:
+#   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
+#   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+# Twitter API
+CONSUMER_KEY: 2lwVHkXDBq2VoWXRM7dKkGIf0
+CONSUMER_SECRET: D3QVlwgLHAxdrl1BHq2nbBjcorXT2Pl7ZOY3GaKBRBduXo4w1S
+ACCESS_TOKEN:     709420247837773824-k4VKbOTJo3d9FqFP5RviezMKjB7m41k
+ACCESS_TOKEN_SECRET: 9kz2ZEMzEcf5HTZ2xtGiSDRu9YDsK0ce3OU7Cx3unjec6
